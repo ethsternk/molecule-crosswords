@@ -26,8 +26,13 @@ def find_solutions(top, left, bottom, right):
     solutions = []
     for width1 in find_widths(top, left, right):
         for width2 in find_widths(bottom, left, right):
-            # pep8 still yells at me if i make this multiline so idk
-            if width1[0] == width2[0] and width2[1][1][1] - width1[1][1][1] == width2[2][1][1] - width1[2][1][1] and width1[1][1][0] < width1[2][1][0] - 1 and width1[2][1][1] < width2[2][1][1] - 1 and width2[1][1][0] < width2[2][1][0] - 1 and width1[1][1][1] < width2[1][1][1] - 1:
+            if (width1[0] == width2[0] and
+                    width2[1][1][1] - width1[1][1][1] ==
+                    width2[2][1][1] - width1[2][1][1] and
+                    width1[1][1][0] < width1[2][1][0] - 1 and
+                    width1[2][1][1] < width2[2][1][1] - 1 and
+                    width2[1][1][0] < width2[2][1][0] - 1 and
+                    width1[1][1][1] < width2[1][1][1] - 1):
                 solutions.append(
                     [width1[1], width1[2], width2[1], width2[2]])
     return solutions
@@ -81,7 +86,3 @@ BBBABBBABBBB
 CCACCCACCCCC
 DDDDADDADDDD
 EEAEEAEEEEEE""")
-
-# test = find_rectangles('CHJDBJMHPJKD', 'OIMDIHEIAFNL',
-#                        'KAINLHLOLBEJ', 'LCBJOJGIEKBO')
-# print(test)
